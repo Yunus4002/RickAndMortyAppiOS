@@ -7,6 +7,7 @@
 
 import UIKit
 
+/// Represents all Views in a single Tabbar
 class Tabbar: UITabBarController {
 
     override func viewDidLoad() {

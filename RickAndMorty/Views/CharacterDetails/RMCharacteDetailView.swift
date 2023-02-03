@@ -71,7 +71,13 @@ final class RMCharacteDetailView: UIView {
             return self.createSection(for: sectionIndex)
         }
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+        collectionView.register(RMCharacterPhotoCVC.self, forCellWithReuseIdentifier: RMCharacterPhotoCVC.identifier)
+        collectionView.register(RMCharacterInfoCVC.self, forCellWithReuseIdentifier: RMCharacterInfoCVC.identifier)
+        collectionView.register(RMCharacterEpisodeCVC.self, forCellWithReuseIdentifier: RMCharacterEpisodeCVC.identifier)
+        
+        
+        
+        
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         return collectionView
         

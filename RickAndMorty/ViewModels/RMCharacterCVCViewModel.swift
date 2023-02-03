@@ -28,7 +28,6 @@ final class  RMCharacterCVCViewModel: Hashable , Equatable{
         self.characterName = characterName
         self.characterStatus = characterStatus
         self.characterImageUrl = characterImageUrl
-        
     }
     
     public var characterStatusText: String {
@@ -40,16 +39,8 @@ final class  RMCharacterCVCViewModel: Hashable , Equatable{
             completion(.failure(URLError(.badURL)))
             return
         }
-        let request = URLRequest(url: url)
-        let task = URLSession.shared.dataTask(with: request) { data, _, error in
-            guard let data = data, error == nil else {
-                completion(.failure(error ?? URLError(.badServerResponse)))
-                return
-            }
-            completion(.success(data))
-            
-        }
-        task.resume()
+        
+        RMImageLoader.shared.downloadImage(url, completion: completion)
     }
     
     //MARK: -> Hashable 
@@ -57,8 +48,8 @@ final class  RMCharacterCVCViewModel: Hashable , Equatable{
     
     /// Hamma datani bir biriga tenglash
     /// - Parameters:
-    ///   - lhs: shu
-    ///   - rhs: shunga teng boladi
+    ///   - lhs: <#lhs description#>
+    ///   - rhs: <#rhs description#>
     /// - Returns: <#description#>
     static func == (lhs: RMCharacterCVCViewModel, rhs: RMCharacterCVCViewModel) -> Bool {
         return lhs.hashValue == rhs.hashValue

@@ -6,3 +6,13 @@
 //
 
 import Foundation
+
+
+
+/// These represent unique API endpoints
+@frozen enum RMEndpoint: String {
+    case character
+    case location
+    case episode
+    
+}
